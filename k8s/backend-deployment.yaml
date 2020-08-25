@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  selector:
+    matchLabels:
+      component: backend
+  template:
+    metadata:
+      labels:
+        component: backend
+    spec:
+      containers:
+      - name: backend
+        image: kareemelkasaby/badreads-backend:v1
+        ports:
+        - containerPort: 4000
+        env:
+        - name: MONGOHOST
+          value: mongo-clusterip  

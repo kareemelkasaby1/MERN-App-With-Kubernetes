@@ -3,9 +3,9 @@ kind: Service
 metadata:
   name: backend-clusterip
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     component: backend
   ports:
-  - port: 4000
-    targetPort: 4000
+    - port: 4000
+      targetPort: 4000
